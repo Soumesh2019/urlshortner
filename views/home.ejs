@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Url Shortner</title>
+    <link rel="stylesheet" href="styles/style.css" />
+  </head>
+  <body>
+    <form action="/api/urls/shorten" method="post">
+      <label for="longUrl">Enter Url </label>
+      <input
+        type="text"
+        name="longUrl"
+        id="longUrl"
+        placeholder="Enter URL"
+        autofocus
+      />
+      <button type="submit">Generate</button>
+    </form>
+    <div class="urls">
+      <% if(longUrl) { %>
+      <a href="<%= longUrl %>" target="_blank">Original Url <%= longUrl %></a>
+      <% }%> <% if(shortUrl) { %>
+      <a href="<%= shortUrl %>" target="_blank">Short Url <%= shortUrl %></a>
+      <% }%>
+    </div>
+  </body>
+</html>
